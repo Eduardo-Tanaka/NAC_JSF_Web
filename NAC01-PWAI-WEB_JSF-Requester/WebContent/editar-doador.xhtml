@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template.xhtml">
+	<ui:define name="content">
+	    <div class="row">
+	    	<h1 class="jumbotron text-center">Alterar Dados</h1>
+	    </div>
+	    <h:form prepend="false">
+	    	<div class="row">
+	    		<div class="col-md-12">
+	    		  	<p:messages />
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Id" for="id"/>
+			    	<h:outputText value="#{doadorBean.doador.id}" styleClass="form-control" a:placeholder="Id" id="id" />			    	
+		    	</div>
+		    </div>
+	    	
+		    <div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Email" for="email"/>
+			    	<h:outputText value="#{doadorBean.doador.email}" styleClass="form-control" a:placeholder="Email" id="email" />			    	
+		    	</div>		
+		    	<div class="form-group col-md-6">
+			    	<h:outputLabel value="Status" for="status"/>
+			    	<h:outputText value="#{doadorBean.doador.status}" styleClass="form-control" id="status" />			    	
+		    	</div>	    	
+	    	</div>
+	    	
+	    	<div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Nome" for="nome"/>
+			    	<h:inputText value="#{doadorBean.doador.nome}" styleClass="form-control" a:placeholder="Nome" id="nome"/>			    	
+		    	</div>		
+		    	<div class="form-group col-md-6">
+			    	<h:outputLabel value="Cpf" for="cpf"/>
+			    	<p:inputMask value="#{doadorBean.doador.cpf}" styleClass="form-control" id="cpf" mask="999.999.999-99">	
+			    		<f:validateRegex pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)" />
+			    	</p:inputMask>		    	
+		    	</div>	    	
+	    	</div>
+	    	
+	    	<div class="row">	
+		    	<div class="form-group col-md-12">
+			    	<h:outputLabel value="Endereco" for="endereco"/>
+			    	<h:inputText value="#{doadorBean.doador.endereco}" styleClass="form-control" id="endereco" />			    	
+		    	</div>	    	
+	    	</div>	    	
+			
+	    	<div class="row">
+	     		<div class="form-group col-md-6">
+	     			<h:commandButton value="Salvar" styleClass="btn btn-success col-xs-4" actionListener="#{doadorBean.atualizar}"/>
+	    		</div>
+	    	</div>
+	    	
+	    </h:form>
+	    
+	    <h1>Alterar Senha</h1>
+	    <br/>
+	    <h:form>
+	    	<div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Senha Anterior" for="senha"/>
+			    	<h:inputSecret value="#{doadorBean.senhaAnterior}" styleClass="form-control" a:placeholder="Senha" id="senha" required="true" requiredMessage="Senha Obrigatória"/>
+		    	</div>
+	    	</div>
+	    	<div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Senha" for="senha"/>
+			    	<h:inputSecret value="#{doadorBean.senha}" styleClass="form-control" a:placeholder="Senha2" id="senha2" required="true" requiredMessage="Senha Obrigatória"/>
+		    	</div>
+	    	</div>
+	    	<div class="row">
+			    <div class="form-group col-md-6">
+			    	<h:outputLabel value="Confirmação da Senha" for="senha2"/>
+			    	<h:inputSecret value="#{doadorBean.senha2}" styleClass="form-control" a:placeholder="Senha3" id="senha3" required="true" requiredMessage="Confirmação de senha Obrigatória"/>
+		    	</div>
+	    	</div>
+	    	
+	    	<div class="row">
+	     		<div class="form-group col-md-6">
+	     			<h:commandButton value="Alterar Senha" styleClass="btn btn-success col-xs-4" actionListener="#{doadorBean.atualizarSenha}"/>
+	    		</div>
+	    	</div>
+
+	    </h:form>
+	    
+	</ui:define>
+</ui:composition>
+</html>

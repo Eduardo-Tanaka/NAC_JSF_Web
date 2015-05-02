@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>Quem Me Quer</title>
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+  <h:outputStylesheet library="css" name="estilo.css"/>
+</h:head>
+
+<h:body>
+<div id="header">
+	<div class="navbar navbar-inverse">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <h:graphicImage library="img" name="logo_quemmequer.png" alt="logo"/>
+	    </div>
+	    
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    	<ul class="nav navbar-nav">
+	    		<li>
+	    			<h:link outcome="/administrador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.id != 0}">
+		    			<h:outputText value="News"/>
+		    		</h:link>
+	    		</li>
+	    		<li>
+	    			<h:link outcome="/relatorio-doador.xhtml?faces-redirect=true">
+		    			<h:outputText value="R. Doadores" />
+		    		</h:link>
+	    		</li>  	
+	    	</ul>
+	    	
+      		<ul class="nav navbar-nav navbar-right">     		
+      			<li><h:link outcome="/login-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.id == 0}">
+		    			<h:outputText value="Entrar" />
+		    		</h:link>
+	    		</li>
+      			<li><h:link outcome="/cadastro-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.id == 0}">
+		    			<h:outputText value="Registrar" />
+		    		</h:link>
+				</li>
+			
+				<li>	
+					<h:form>
+						<h:outputText value="#{doadorBean.doador.email}" rendered="#{doadorBean.doador.id != 0}" style="color: WHITE; padding-right:15px; margin-top: 15px" styleClass="nav navbar-nav"/>
+						<h:commandButton value="Sair" rendered="#{doadorBean.doador.id != 0}" action="#{doadorBean.sair}" styleClass="btn btn-danger" style="margin-top:8px"/>		
+					</h:form>
+				</li>
+      		</ul>
+      	</div>
+	  </div>
+	</div>
+</div>
+
+<div class="container">
+	<p:chart type="bar" model="#{tipoDoadorChart.tipoDoador}" style="height: 300px" responsive="true"/>
+	<br />
+	<br />
+	<p:chart type="pie" model="#{statusChart.pieModel2}" style="height: 300px" responsive="true"/>	
+</div>
+
+</h:body>
+</html>

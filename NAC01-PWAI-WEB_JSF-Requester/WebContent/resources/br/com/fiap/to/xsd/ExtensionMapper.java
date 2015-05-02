@@ -1,0 +1,138 @@
+
+/**
+ * ExtensionMapper.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:34:40 IST)
+ */
+
+        
+            package br.com.fiap.to.xsd;
+        
+            /**
+            *  ExtensionMapper class
+            */
+            @SuppressWarnings({"unchecked","unused"})
+        
+        public  class ExtensionMapper{
+
+          public static java.lang.Object getTypeObject(java.lang.String namespaceURI,
+                                                       java.lang.String typeName,
+                                                       javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "BairroTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.BairroTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "TipoLogradouroTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.TipoLogradouroTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "LogradouroTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.LogradouroTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "DoadorTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.DoadorTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://exceptions.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "PasswordCheck".equals(typeName)){
+                   
+                            return  br.com.fiap.exceptions.xsd.PasswordCheck.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "EstadoTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.EstadoTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://bo.fiap.com.br".equals(namespaceURI) &&
+                  "Exception".equals(typeName)){
+                   
+                            return  br.com.fiap.bo.Exception.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "CidadeTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.CidadeTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://to.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "DoadorEnderecoTO".equals(typeName)){
+                   
+                            return  br.com.fiap.to.xsd.DoadorEnderecoTO.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://exceptions.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "IdNotFoundException".equals(typeName)){
+                   
+                            return  br.com.fiap.exceptions.xsd.IdNotFoundException.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://exceptions.fiap.com.br/xsd".equals(namespaceURI) &&
+                  "DBCommitException".equals(typeName)){
+                   
+                            return  br.com.fiap.exceptions.xsd.DBCommitException.Factory.parse(reader);
+                        
+
+                  }
+
+              
+             throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
+          }
+
+        }
+    

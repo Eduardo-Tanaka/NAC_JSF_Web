@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/_template.xhtml">
+	<ui:define name="content">
+		<!-- sem o prependId é necessário colocar o id do formulário para acessar o elemento no jQuery. Ex: $("#aForm:param") -->  
+	    <h:form prependId="false">	    
+	    	<p>Conta Ativada com sucesso! 
+			    <p:commandLink action="#{doadorBean.carregarDados}" ajax="false">	     
+			    	<h:outputText value="Clique aqui"/>	
+			    	<h:inputHidden value="#{doadorCadastroBean.param1}" id="param"/>
+			    	<h:inputHidden value="#{doadorBean.param1}" id="param1"/>
+			    </p:commandLink>
+			    	para continuar com seu cadastro.</p>
+			     <p:commandLink action="#{doadorCadastroBean.ativar}" ajax="true" id="botao"/>	  
+	    </h:form>
+	    
+	    <script>
+	    	// script para chamar o metodo do commandLink para ativar a conta do doador ao acessar a página, sem precisar clicar em nada
+			$().ready(function(){
+		 		var url = window.location.href.toString();
+				
+		 		var params = url.split("qMQ");
+
+		 		$("#param").val(params[1]);
+		 		$("#param1").val(params[1]);
+		 		document.getElementById("botao").click();
+			});
+		</script>
+		
+	</ui:define>
+</ui:composition>
+
+</html>
