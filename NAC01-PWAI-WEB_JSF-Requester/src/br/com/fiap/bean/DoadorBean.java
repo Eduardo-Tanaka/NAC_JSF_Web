@@ -37,6 +37,7 @@ import br.com.fiap.to.xsd.DoadorTO;
 @SessionScoped
 public class DoadorBean {
 
+	private boolean loggedIn;
 	private DoadorTO doador;
 	private String senha;
 	private String senha2;
@@ -115,7 +116,7 @@ public class DoadorBean {
 		if(doador.getTipoDoador().equals("FISICA")) {
 			return "/editar-doador.xhtml?faces-redirect=true";
 		} else if(doador.getTipoDoador().equals("JURIDICA")){
-			return "/editar-doador-juridica.xhtml?faces-redirect=true";
+			return "/restricted/editar-doador-juridica.xhtml?faces-redirect=true";
 		} else {
 			return "/administrador.xhtml?faces-redirect=true";
 		}
@@ -128,9 +129,9 @@ public class DoadorBean {
 		
 		try {
 			LogarResponse response = stub.logar(logar);
-			
+			doador = response.get_return();
 			param1 = response.get_return().getId();
-			
+			loggedIn = true;
 			return carregarDados();
 		} catch (RemoteException e) {
 		    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Sistema Indisponível", "Contate o administrador."));
@@ -202,9 +203,10 @@ public class DoadorBean {
 	
 	public String sair() {
         FacesContext facesContext = FacesContext.getCurrentInstance();    
+        loggedIn = false;
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);    
         session.invalidate();    
-		return "login-doador";
+		return "/login-doador.xhtml?faces-redirect=true";
 	}
 	
 	public DoadorTO getDoador() {
@@ -242,6 +244,14 @@ public class DoadorBean {
 
 	public void setParam1(int param1) {
 		this.param1 = param1;
+	}
+
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}	
 	
 }

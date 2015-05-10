@@ -39,17 +39,17 @@
 		    		</h:link>
 	    		</li>
 				<li>
-	    			<h:link outcome="/editar-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('FISICA')}">
+	    			<h:link outcome="/restricted/editar-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('FISICA')}">
 		    			<h:outputText value="Editar" />
 		    		</h:link>
 	    		</li>	
 	    		<li>
-	    			<h:link outcome="/editar-doador-juridica.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('JURIDICA')}">
+	    			<h:link outcome="/restricted/editar-doador-juridica.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('JURIDICA')}">
 		    			<h:outputText value="Editar" />
 		    		</h:link>
 	    		</li>    
 	    		<li>
-	    			<h:link outcome="/relatorio-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('ADM')}">
+	    			<h:link outcome="/restricted/relatorio-doador.xhtml?faces-redirect=true" rendered="#{doadorBean.doador.tipoDoador.equals('ADM')}">
 		    			<h:outputText value="R. Doadores" />
 		    		</h:link>
 	    		</li>  	

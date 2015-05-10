@@ -19,6 +19,16 @@
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
   <session-config>
-      <session-timeout>1</session-timeout>
+      <session-timeout>5</session-timeout>
   </session-config>
+  <!--  login filter -->
+  <filter>
+      <filter-name>LoginFilter</filter-name>
+      <filter-class>br.com.fiap.filter.LoginFilter</filter-class>    
+  </filter>
+  <filter-mapping>
+      <filter-name>LoginFilter</filter-name>
+      <url-pattern>/faces/restricted/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>
